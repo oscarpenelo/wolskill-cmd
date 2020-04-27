@@ -1,6 +1,6 @@
 {
   "name": "wolskill-cmd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wolskill by Oscar Penelo",
   "main": "main.js",
   "scripts": {},
@@ -23,7 +23,7 @@
     "yargs": "^15.0.2"
   },
   "bin": {
-    "wolskill-cmd": "./main.js"
+    "wolskill-cmd": "main.js"
   },
   "repository": {
     "type": "git",
