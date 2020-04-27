@@ -1,0 +1,28 @@
+{
+  "name": "wolskill",
+  "version": "1.0.0",
+  "description": "wolskill by Oscar Penelo",
+  "main": "main.js",
+  "scripts": {},
+  "build": {
+    "appId": "com.oscar.wolskill",
+    "mac": {
+      "target": "dmg",
+      "icon": "./icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "./icon.ico"
+    }
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "macaddress": "*",
+    "ws-reconnect": "^1.0.7",
+    "yargs": "^15.0.2"
+  },
+  "bin": {
+    "wolskill-cmd": "main.js"
+  }
+}
