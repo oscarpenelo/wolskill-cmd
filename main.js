@@ -1,6 +1,5 @@
-// Modules to control application life and create native browser window
+#!/usr/bin/env node
 
-//const URWS = require("universal-reconnecting-websocket")
 
 var WSCLIENT = require('ws-reconnect');
 
@@ -13,14 +12,7 @@ var license = ""
 let pingTimeout
 
 
-
-
-// shutdown.js
-
-// Require child_process
 var exec = require('child_process').exec;
-
-// Create shutdown function
 function shutdown(callback) {
     exec('shutdown now', function(error, stdout, stderr) {
         callback(stdout);
@@ -52,7 +44,7 @@ ws.on('connect', () => {
 
     clearTimeout(this.sendping);
     macaddress.all(function(err, all) {
-                    console.log(JSON.stringify(all))
+        console.log(JSON.stringify(all))
 
         ws.send(JSON.stringify(all));
     });
@@ -75,7 +67,7 @@ ws.on('message',  data => {
 
         this.sendping = setTimeout(() => {
             macaddress.all(function(err, all) {
-                            console.log(JSON.stringify(all))
+                console.log(JSON.stringify(all))
 
                 ws.send(JSON.stringify(all));
             });
@@ -88,7 +80,6 @@ ws.on('message',  data => {
                 console.log(mac)
                 if (mess.value == mac) {
                     console.log("SHUTDOWN")
-                    // Reboot computer
                     shutdown(function(output) {
                         console.log(output);
                     });
@@ -100,8 +91,8 @@ ws.on('message',  data => {
 
 
 ws.on('error', () => {
-console.log("ERROR")
-ws.connect(url + "?awsid=" + awsid + "&license=" + license)
+    console.log("ERROR")
+    ws.connect(url + "?awsid=" + awsid + "&license=" + license)
 
 
 });
@@ -113,29 +104,22 @@ ws.on('reconnect', () => {
     clearTimeout(this.sendping);
     this.sendping = setTimeout(() => {
         macaddress.all(function(err, all) {
-                        console.log(JSON.stringify(all))
+            console.log(JSON.stringify(all))
 
             ws.send(JSON.stringify(all));
         });
     }, 30000);
     console.log('reconnected')
 });
-/*
-ws.on('close', function clear() {
-    console.log('close')
-
-  //  clearTimeout(pingTimeout);
-})
-*/
 function heartbeat() {
-    
+
     clearTimeout(pingTimeout);
     pingTimeout = setTimeout(() => {
 
-console.log("TIMEOUT")
-ws.emit("connect");
-        }, 40000);
-    
+        console.log("TIMEOUT")
+        ws.emit("connect");
+    }, 40000);
+
 }
 
 
@@ -143,10 +127,3 @@ ws.on("destroyed",function(){
     console.log("destroyed");
 });
 ws.start()
-/*
-ws.on('disconnect', () => {
-
-    console.log('DISCONNECTED')
-})
-*/
-//ws.connect()
