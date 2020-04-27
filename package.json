@@ -23,7 +23,7 @@
     "yargs": "^15.0.2"
   },
   "bin": {
-    "wolskill-cmd": "node main.js"
+    "wolskill-cmd": "./main.js"
   },
   "repository": {
     "type": "git",
