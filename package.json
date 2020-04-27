@@ -1,5 +1,5 @@
 {
-  "name": "wolskill",
+  "name": "wolskill-cmd",
   "version": "1.0.0",
   "description": "wolskill by Oscar Penelo",
   "main": "main.js",
@@ -23,6 +23,16 @@
     "yargs": "^15.0.2"
   },
   "bin": {
-    "wolskill-cmd": "main.js"
-  }
+    "wolskill-cmd": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarpenelo/wolskill-cmd.git"
+  },
+  "author": "Òscar Penelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oscarpenelo/wolskill-cmd/issues"
+  },
+  "homepage": "https://github.com/oscarpenelo/wolskill-cmd#readme"
 }
